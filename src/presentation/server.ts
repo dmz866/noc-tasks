@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import { FileSystemDataSource } from '../infrastructure/data-sources/file-system.data-source';
 import { LogRepository } from '../infrastructure/repositories/log.repository';
 import { CronService } from './cron/cron-service';
@@ -9,5 +10,6 @@ export class Server {
     static start() {
         const onTick = () => { new CheckService(logRepository).execute('https://www.google.com') };
         CronService.createJob('*/5 * * * * *', onTick);
+        console.log(process.env.TEST_EMAIL);
     }
 }

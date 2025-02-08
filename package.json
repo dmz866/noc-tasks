@@ -33,6 +33,7 @@
         "cron": "^3.5.0",
         "cross-spawn": "^7.0.6",
         "diff": "^4.0.2",
+        "dotenv": "^16.4.7",
         "dynamic-dedupe": "^0.3.0",
         "eastasianwidth": "^0.2.0",
         "emoji-regex": "^9.2.2",
