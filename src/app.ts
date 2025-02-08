@@ -1,3 +1,3 @@
-const name1 = 'asd';
+import { Server } from "./presentation/server";
 
-console.log(name1);
+Server.start();

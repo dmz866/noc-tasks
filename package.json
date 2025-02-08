@@ -30,6 +30,7 @@
         "color-name": "^1.1.4",
         "concat-map": "^0.0.1",
         "create-require": "^1.1.1",
+        "cron": "^3.5.0",
         "cross-spawn": "^7.0.6",
         "diff": "^4.0.2",
         "dynamic-dedupe": "^0.3.0",
