@@ -13,13 +13,13 @@ export class CheckService {
                 throw Error(`Error on check service ${url}`)
             }
 
-            const log = new LogEntity(LogSeverityLevel.low, `${url} is working!`);
+            const log = new LogEntity({ level: LogSeverityLevel.low, message: `${url} is working!` });
             this.logRepository.saveLog(log);
 
             return true;
         }
         catch (error) {
-            const log = new LogEntity(LogSeverityLevel.high, `${url} is not working :(`);
+            const log = new LogEntity({ level: LogSeverityLevel.high, message: `${url} is not working :(` });
             this.logRepository.saveLog(log);
 
             return false;

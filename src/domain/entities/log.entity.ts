@@ -1,9 +1,14 @@
+interface IOptions {
+    level: LogSeverityLevel;
+    message: string;
+}
+
 export class LogEntity {
     level: LogSeverityLevel;
     message: string;
     createAt: Date;
 
-    constructor(level: LogSeverityLevel, message: string) {
+    constructor({ level, message }: IOptions) {
         this.level = level;
         this.message = message;
         this.createAt = new Date();
