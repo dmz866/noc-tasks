@@ -22,7 +22,7 @@ export class EmailService {
         }
     });
 
-    constructor(private logRepository: LogBaseRepository) {
+    constructor() {
     }
 
     async sendEmail({ to, subject, htmlBody, attachments = [] }: IOptions) {
