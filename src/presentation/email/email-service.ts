@@ -1,9 +1,16 @@
 import nodemailer from 'nodemailer';
+import { LogBaseRepository } from '../../domain/repositories/log-base.repository';
 
 interface IOptions {
-    to: string;
+    to: string | string[];
     subject: string;
     htmlBody: string;
+    attachments?: IAttachment[];
+}
+
+interface IAttachment {
+    fileName: string;
+    path: string;
 }
 
 export class EmailService {
@@ -15,9 +22,12 @@ export class EmailService {
         }
     });
 
-    async sendEmail({ to, subject, htmlBody }: IOptions) {
+    constructor(private logRepository: LogBaseRepository) {
+    }
+
+    async sendEmail({ to, subject, htmlBody, attachments = [] }: IOptions) {
         try {
-            const sentInformation = await this.transporter.sendMail({ to, subject, html: htmlBody });
+            const sentInformation = await this.transporter.sendMail({ to, subject, html: htmlBody, attachments });
         }
         catch (error) {
 
