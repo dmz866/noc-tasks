@@ -1,10 +1,11 @@
 import 'dotenv/config';
+import { PostgresDataSource } from '../infrastructure/data-sources/postgres.data-source';
 import { LogRepository } from '../infrastructure/repositories/log.repository';
 import { CronService } from './cron/cron-service';
 import { CheckService } from './domain/use-cases/checks/check-service';
-import { MongoDataSource } from '../infrastructure/data-sources/mongo.data-source';
 
-const logRepository = new LogRepository(new MongoDataSource());
+//const logRepository = new LogRepository(new MongoDataSource());
+const logRepository = new LogRepository(new PostgresDataSource());
 
 export class Server {
     static start() {
